@@ -2,7 +2,7 @@
 
 What this is: a system that answers questions about customer reviews
 (e-commerce, opinion-level, with brand/price/category/sentiment/theme
-metadata). Built for prototyping — local vector store, local reranker,
+metadata). Built for prototyping: local vector store, local reranker,
 OpenAI for the "thinking" parts.
 
 ---
