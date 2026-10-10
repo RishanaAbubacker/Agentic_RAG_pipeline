@@ -22,6 +22,7 @@ COLLECTION_NAME = "voc_reviews"
 TOP_K = 8
 MAX_AGENT_STEPS = 4          # hard cap on tool-call loops, avoid runaway agent
 MIN_DOCS_TO_ANSWER = 1        # below this -> refuse instead of hallucinate
+MAX_DOCS_TO_LLM = 10          # top-ranked docs shown to the answering LLM (cap by count, not characters)
 
 # --- Retrieval quality checkpoint ---
 # Chroma distance is embedding/metric dependent (default = L2, not cosine).
@@ -48,6 +49,14 @@ RERANK_TOP_N = 15         # only rerank top N fused candidates — reranking is 
 # same calibration warning as the distance thresholds above.
 RERANK_GOOD_THRESHOLD = 0.0
 RERANK_BAD_THRESHOLD = -3.0
+
+# --- Evaluation (see eval/) ---
+# Judge model grades answers. Using a STRONGER model than LLM_MODEL is better:
+# a model grading its own answers tends to be too kind.
+EVAL_JUDGE_MODEL = os.getenv("RAG_EVAL_JUDGE_MODEL", LLM_MODEL)
+EVAL_TESTSET_PATH = "eval/testset.jsonl"
+EVAL_RESULTS_PATH = "eval/results.csv"
+EVAL_RECALL_K = 15            # recall/precision measured on the top K retrieved docs
 
 # --- Required columns in your dataset ---
 # review_id is auto-generated if missing. opinion_id is auto-generated per row.

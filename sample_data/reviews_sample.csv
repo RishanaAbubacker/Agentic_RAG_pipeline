@@ -1,0 +1,8 @@
+review_id,product_name,brand,price,category,review_text,opinion,opinion_sentiment,sentiment_score,opinion_theme,opinion_subtheme
+1,Wireless Earbuds X1,SoundCo,1999,Electronics,"Great sound but battery dies fast and case is flimsy.",battery dies fast,negative,-0.7,Battery,Battery Life
+1,Wireless Earbuds X1,SoundCo,1999,Electronics,"Great sound but battery dies fast and case is flimsy.",case is flimsy,negative,-0.5,Build Quality,Case
+1,Wireless Earbuds X1,SoundCo,1999,Electronics,"Great sound but battery dies fast and case is flimsy.",great sound,positive,0.8,Audio Quality,Sound
+2,Wireless Earbuds X1,SoundCo,1999,Electronics,"Comfortable fit, but pricey for what you get.",comfortable fit,positive,0.6,Comfort,Fit
+2,Wireless Earbuds X1,SoundCo,1999,Electronics,"Comfortable fit, but pricey for what you get.",pricey for what you get,negative,-0.4,Price,Value
+3,BassBoost Pro,LoudTech,2999,Electronics,"Battery lasts all day, love it.",battery lasts all day,positive,0.9,Battery,Battery Life
+4,BassBoost Pro,LoudTech,2999,Electronics,"Case cracked within a week, disappointed.",case cracked within a week,negative,-0.8,Build Quality,Case

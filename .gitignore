@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+chroma_db/
+.env
+*.egg-info/
+.DS_Store
+
+# real data stays out of version control, only sample_data/ ships with the repo
+data/
+*.csv
+!sample_data/*.csv
+
+# eval outputs that contain real review text stay local
+# (eval/history.jsonl is NOT ignored: scores + settings only, it is your before/after record)
+eval/results.csv
+eval/testset.jsonl

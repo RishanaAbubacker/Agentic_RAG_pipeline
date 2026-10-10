@@ -1,0 +1,8 @@
+pandas
+chromadb
+sentence-transformers
+openai
+rank_bm25
+# evaluation (eval/)
+langchain-openai
+openevals

@@ -11,14 +11,9 @@ from bm25_index import BM25Index
 from agent import VoCAgent
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py path/to/reviews.csv [--reindex]")
-        sys.exit(1)
-
-    csv_path = sys.argv[1]
-    reindex = "--reindex" in sys.argv
-
+def build_agent(csv_path: str, reindex: bool = False) -> VoCAgent:
+    """Load data, build/reuse the indexes, return a ready agent.
+    Shared by this chat loop and by eval/run_eval.py so both test the same pipeline."""
     print("Loading dataset...")
     df = load_dataset(csv_path)
     print(f"Loaded {len(df)} opinions from {df['review_id'].nunique()} reviews.")
@@ -36,7 +31,15 @@ def main():
     print("Building BM25 keyword index (in-memory, rebuilt every run)...")
     bm25_index = BM25Index(docs)
 
-    agent = VoCAgent(store, bm25_index, df)
+    return VoCAgent(store, bm25_index, df)
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python main.py path/to/reviews.csv [--reindex]")
+        sys.exit(1)
+
+    agent = build_agent(sys.argv[1], reindex="--reindex" in sys.argv)
 
     print("\nReady. Ask questions (blank line to quit).\n")
     while True:
